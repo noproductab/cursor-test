@@ -1,0 +1,41 @@
+{#-
+  Custom marketing homepage for Northline.
+  Applied from docs/index.md via: template: home.html
+-#}
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&display=swap" rel="stylesheet" />
+{% endblock %}
+
+{% block tabs %}{% endblock %}
+{% block site_nav %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block hero %}
+<section class="nl-hero" aria-label="Northline home">
+  <div class="nl-hero__atmosphere" aria-hidden="true">
+    <div class="nl-hero__glow"></div>
+    <div class="nl-hero__ridge nl-hero__ridge--back"></div>
+    <div class="nl-hero__ridge nl-hero__ridge--mid"></div>
+    <div class="nl-hero__ridge nl-hero__ridge--front"></div>
+    <div class="nl-hero__mist"></div>
+  </div>
+
+  <div class="nl-hero__content md-typeset">
+    <p class="nl-hero__brand">Northline</p>
+    <h1 class="nl-hero__title">Find your bearing.</h1>
+    <p class="nl-hero__lede">
+      A calm static site starter — clear pages, fast builds, and a path that stays easy to follow.
+    </p>
+    <div class="nl-hero__actions">
+      <a class="nl-btn nl-btn--primary md-button" href="{{ 'about/' | url }}">About</a>
+      <a class="nl-btn nl-btn--ghost md-button" href="{{ 'guide/' | url }}">Guide</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block content %}{% endblock %}
