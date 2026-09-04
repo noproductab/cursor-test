@@ -1,3 +1,5 @@
+[![Deploy Documentation](https://github.com/noproductab/cursor-test/actions/workflows/docs.yml/badge.svg)](https://github.com/noproductab/cursor-test/actions/workflows/docs.yml)
+
 # Northline
 
 A small static site built with [Zensical](https://zensical.org/) and published to GitHub Pages.
