@@ -1,0 +1,243 @@
+:root {
+  --nl-ink: #0c1f1c;
+  --nl-forest: #16352e;
+  --nl-moss: #2f5d4e;
+  --nl-mist: #d7ebe3;
+  --nl-foam: #eef7f3;
+  --nl-brass: #b08d3a;
+  --nl-brass-bright: #d4b45a;
+  --nl-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", serif;
+}
+
+/* Homepage hero — one composition, brand-first */
+.nl-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 2.4rem);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  margin: -1.2rem -0.8rem 0;
+  padding: clamp(4rem, 12vh, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(3rem, 8vh, 5rem);
+  color: var(--nl-foam);
+  background:
+    radial-gradient(120% 80% at 70% 10%, rgba(176, 141, 58, 0.18), transparent 55%),
+    linear-gradient(165deg, var(--nl-ink) 0%, var(--nl-forest) 48%, #0a1714 100%);
+}
+
+.nl-hero__atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.nl-hero__glow {
+  position: absolute;
+  width: min(70vw, 36rem);
+  height: min(70vw, 36rem);
+  top: -12%;
+  right: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 180, 90, 0.22), transparent 68%);
+  animation: nl-drift 14s ease-in-out infinite alternate;
+}
+
+.nl-hero__ridge {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(8, 20, 17, 0.85));
+  clip-path: polygon(0 48%, 12% 40%, 24% 52%, 38% 34%, 52% 46%, 66% 28%, 78% 42%, 90% 30%, 100% 38%, 100% 100%, 0 100%);
+  opacity: 0.55;
+}
+
+.nl-hero__ridge--back {
+  height: 48%;
+  opacity: 0.28;
+  transform: translateY(-1.5rem) scaleX(1.04);
+  background: linear-gradient(180deg, transparent, rgba(47, 93, 78, 0.55));
+}
+
+.nl-hero__ridge--mid {
+  height: 40%;
+  opacity: 0.42;
+  transform: translateY(-0.5rem);
+  animation: nl-rise 18s ease-in-out infinite alternate;
+}
+
+.nl-hero__ridge--front {
+  height: 34%;
+  opacity: 0.7;
+  background: linear-gradient(180deg, transparent, rgba(6, 16, 14, 0.95));
+}
+
+.nl-hero__mist {
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  background: linear-gradient(180deg, transparent, rgba(215, 235, 227, 0.08));
+  animation: nl-mist 10s ease-in-out infinite alternate;
+}
+
+.nl-hero__content {
+  max-width: 38rem;
+}
+
+.nl-hero__brand {
+  margin: 0 0 0.85rem;
+  font-family: var(--nl-display);
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 650;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--nl-foam);
+  opacity: 0;
+  animation: nl-fade-up 0.9s ease forwards 0.1s;
+}
+
+.nl-hero__title {
+  margin: 0 0 1rem !important;
+  font-family: var(--nl-display);
+  font-size: clamp(1.55rem, 3.6vw, 2.35rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.02em;
+  color: var(--nl-mist) !important;
+  opacity: 0;
+  animation: nl-fade-up 0.9s ease forwards 0.28s;
+}
+
+.nl-hero__lede {
+  margin: 0 0 1.75rem;
+  max-width: 30rem;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(238, 247, 243, 0.82);
+  opacity: 0;
+  animation: nl-fade-up 0.9s ease forwards 0.42s;
+}
+
+.nl-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  opacity: 0;
+  animation: nl-fade-up 0.9s ease forwards 0.58s;
+}
+
+.nl-btn {
+  border-radius: 0.35rem !important;
+  font-weight: 600 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+.nl-btn:hover {
+  transform: translateY(-1px);
+}
+
+.nl-btn--primary {
+  background: var(--nl-brass) !important;
+  color: var(--nl-ink) !important;
+  border: 1px solid transparent !important;
+}
+
+.nl-btn--primary:hover {
+  background: var(--nl-brass-bright) !important;
+}
+
+.nl-btn--ghost {
+  background: transparent !important;
+  color: var(--nl-foam) !important;
+  border: 1px solid rgba(238, 247, 243, 0.35) !important;
+}
+
+.nl-btn--ghost:hover {
+  border-color: rgba(238, 247, 243, 0.7) !important;
+  background: rgba(238, 247, 243, 0.06) !important;
+}
+
+/* Tone down default chrome on the homepage */
+.md-typeset .nl-hero h1 {
+  border: 0;
+}
+
+body[data-md-color-scheme] .md-main__inner:has(.nl-hero) {
+  margin-top: 0;
+}
+
+.md-content:has(.nl-hero) {
+  max-width: none;
+}
+
+.md-content__inner:has(.nl-hero) {
+  margin: 0;
+  padding: 0;
+}
+
+.md-content__inner:has(.nl-hero)::before {
+  display: none;
+}
+
+@keyframes nl-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nl-drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-4%, 6%) scale(1.08);
+  }
+}
+
+@keyframes nl-rise {
+  from {
+    transform: translateY(-0.25rem);
+  }
+  to {
+    transform: translateY(-1.1rem);
+  }
+}
+
+@keyframes nl-mist {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 60em) {
+  .nl-hero {
+    min-height: calc(100svh - 3.2rem);
+    align-items: center;
+    margin-left: -0.6rem;
+    margin-right: -0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nl-hero__brand,
+  .nl-hero__title,
+  .nl-hero__lede,
+  .nl-hero__actions,
+  .nl-hero__glow,
+  .nl-hero__ridge--mid,
+  .nl-hero__mist {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
